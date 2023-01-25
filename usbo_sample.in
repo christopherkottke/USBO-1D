@@ -1,0 +1,118 @@
+# Comments take up an entire line and must start with a '#' character
+
+
+# ---------- Must be Set ---------- #
+
+## Base directory from which all other paths will be referenced
+base_path = <PATH>
+
+## Name of the pickled simulation data file (to be saved if one does not yet exist, or to be loaded otherwise)
+sim_data_path = simData.pkl
+
+## Path to the PMF folder
+pmf_folder = whamCalc
+
+## Path to the PMF data file
+pmf_path = result.dat
+
+## Path to the meta data file
+meta_path = meta.dat
+
+## Base name of output files
+output_name = 7
+
+## Number of umbrellas to be used (if -1, skip computing new umbrellas and load 'output_name.txt' parameters for MCMC simulation)
+n_umbrellas = 7
+
+## Lower bound for the placement of umbrella centers
+clb = 2.0
+
+## Upper bound for the placement of umbrella centers
+cub = 5.0
+
+## Lower bound for the domain of the distributional loss
+dist_clb = 1.9
+
+## Upper bound for the domain of the distributional loss
+dist_cub = 5.1
+
+## Base lower bound for the value of k (in kcal/mol/A^2)
+base_klb = 1e-3
+
+## Base upper bound for the value of k (in kcal/mol/A^2)
+base_kub = 1e3
+
+
+# ---------- Simulation Parameters ---------- #
+
+## Temperature at which the simulation was carried out (default 300.0) (in Kelvin)
+temp = 300.0
+
+## Boolean for specifying whether the PMF axis is periodic (default=0) (0=aperiodic, 1=periodic)
+periodic = 0
+
+## Integration time used during the simulation (default 1e-15) (in seconds)
+sim_int_time = 1e-15
+
+## Time between sampled points (default 1e-15) (in seconds)
+time_between_points = 1e-13
+
+
+# ---------- Loss Parameters ---------- #
+
+## Weighting factor of the multimodal penalty (default 1e6)
+mm_weight = 1e4
+
+## Weighting factor of the unsampled penalty (default 1e2)
+unsampled_weight = 0
+
+## Upper bound for determining which points are "unsampled" (default 1e-4)
+unsampled_cutoff = 1e-4
+
+
+# ---------- BHO Parameters ---------- #
+
+## Number of random points to use for each batch entry when optimizing the BHO acquisition function (default 10)
+bho_opt_size = 10
+
+## Number of restarts for training the BHO Gaussian process (default 10)
+bho_gp_n_restarts = 20
+
+
+# ---------- MCMC Simulation Parameters ---------- #
+
+## Number of parallel MCMC simulations to perform (default 100)
+n_replicas = 100
+
+## Minimum MCMC simulation length (default 1e-11) (in seconds)
+min_step = 1e-11
+
+## Maximum KL-Divergence MCMC simulation must obtain for convergence to the infinite-time distribution as well as to discrete partitions of itself (default 0.05)
+sim_conv_tol = 0.01
+
+## Number of partitions for evaluation simulation convergence (default 2)
+sim_conv_factor = 2
+
+## Integration time of simulation (in seconds) (default 1e-15)
+int_time = 1e-15
+
+## Number of steps to be taken at once (default 10) (higher values correspond to faster internal simulation, but less accurate results)
+save_steps = 10
+
+
+# ---------- Optimizing US Parameters ---------- #
+
+## Number of discrete points used to define the PMF interpolation (default 800)
+n_x_points = 800
+
+## Number of iterations to perform the umbrella parameter search (default 10)
+umb_search_iters = 10
+
+## Number of candidate points to be optimized for each search iteration (default 10)
+umb_search_bSize = 1
+
+## Name of the last parameter output file for re-evaluation of umbrellas (if None, no file will be read)
+last_param_file = None
+
+## Boolean flag indicating whether new umbrellas should be placed alongside existing histograms from the prior run (0=False, 1=True) (default 0)
+use_prior_dists = 0
